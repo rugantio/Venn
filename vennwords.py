@@ -58,7 +58,7 @@ for x,y,z in itertools.combinations(profiles,3):
      
 ## create venn sets filled with words  
     print('Generating Venn diagram with words for:', x, y, z)    
-    v = venn3_wordcloud(s, set_labels=(x,y,z), alpha=0.7, wordcloud_kwargs={'max_words':100,'min_font_size':8})
+    v = venn3_wordcloud(s, set_labels=(x,y,z), alpha=0.7, wordcloud_kwargs={'max_words':50,'min_font_size':8})
     path3 = path1 + '_words'
     plt.savefig(path3)
     plt.close()
