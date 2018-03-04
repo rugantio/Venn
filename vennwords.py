@@ -23,10 +23,13 @@ diz = {name: '' for name in profiles}                              # initialize 
 for name in diz:                             # for every profile
     wordset = set()                          # create a set
     for item in data:                        # take every post
-        if name == item['profile']:          # get post with such profile name
-            for parola in item['labels']:    # get all the words in that post
-                wordset.add(parola)          # add words to wordset
-            diz[name] = wordset              # update dictionary values relative to such profile
+        if 'profile' in item:
+            if name == item['profile']:      # get post with such profile name
+                if 'labels' in item:
+                    for parola in item['labels']:    # get all the words in that post
+                        wordset.add(parola)          # add words to wordset
+        diz[name] = wordset              # update dictionary values relative to such profile
+ 
 for x,y,z in itertools.combinations(profiles,3):
     setx = set(diz[x])
     sety = set(diz[y])
